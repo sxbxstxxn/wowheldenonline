@@ -4,19 +4,41 @@
         <form>
             <div class="form-group">
                 <label>Server Region</label>
-                <select class="form-control form-control-lg">
-                    <option>America</option>
-                    <option>Europe</option>
-                    <option>Oceanic</option>
+                <select id="serverregion" class="form-control form-control-lg" onchange="changeServernames();">
+                    {% for key,region in server.regions %}
+                    <option value="{{ key }}">{{ region }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="form-group">
                 <label>Server Type</label>
-                <select class="form-control form-control-lg">
-                    <option>PVE</option>
-                    <option>PVP</option>
-                    <option>RP</option>
+                <select id="servertype" class="form-control form-control-lg" onchange="changeServernames();">
+                    {% for key,type in server.types %}
+                    <option value="{{ key }}">{{ type }}</option>
+                    {% endfor %}
                 </select>
             </div>
+            <div class="form-group">
+                <label>Server Name</label>
+                <select id="servername" class="form-control form-control-lg">
+
+                </select>
+            </div>
+            <script>
+                function changeServernames() {
+                    var region = $('#serverregion').val();
+                    var type = $('#servertype').val();
+                    var servernames_unparsed = '{{ server.names|json_encode|raw }}';
+                    var servernames = JSON.parse(servernames_unparsed);
+
+                    $("#servername").empty();
+
+                    for (servername in servernames[region][type]) {
+                        console.log(servernames[region][type][servername]);
+                        $("#servername").append(new Option(servernames[region][type][servername], servernames[region][type][servername].toLowerCase().replace(' ', '')));
+                    }
+                }
+            </script>
         </form>
+
 {% endblock %}
