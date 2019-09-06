@@ -15,4 +15,12 @@ class DefaultController extends AbstractController
     {
         return $this->render('index.html.twig');
     }
+
+    /**
+     * @Route("/impressum", name="impressum", methods={"GET"})
+     */
+    public function impressum(): Response
+    {
+        return $this->render('impressum.html.twig');
+    }
 }

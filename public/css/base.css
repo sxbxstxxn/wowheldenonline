@@ -1,5 +1,31 @@
 body {
-    background-color:#202020;
-    color:#E0E0E0;
+    background-color:#6c757d;
+    color:#FFFFFF;
     font-family: 'Play', sans-serif;
+}
+
+header {
+    width: 100%;
+    background-color: #000000;
+}
+header .wowlogo {
+    height:50px;
+}
+
+header .headline {
+    text-align:center;
+}
+
+.main {
+    margin-top: 73px;
+    margin-bottom: 71px;
+}
+
+
+footer {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #000000;
 }

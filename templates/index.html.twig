@@ -1,7 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <div class="container">
-        <h1>WOW Helden Online</h1>
-    </div>
+{% block content %}
+        <form>
+            <div class="form-group">
+                <label>Server Region</label>
+                <select class="form-control form-control-lg">
+                    <option>America</option>
+                    <option>Europe</option>
+                    <option>Oceanic</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Server Type</label>
+                <select class="form-control form-control-lg">
+                    <option>PVE</option>
+                    <option>PVP</option>
+                    <option>RP</option>
+                </select>
+            </div>
+        </form>
 {% endblock %}
